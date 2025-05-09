@@ -1,10 +1,19 @@
-WORKDIR /app
+const express = require('express');
+const router = express.Router();
+const jwt = require('jsonwebtoken');
 
-COPY package.json ./
-RUN npm install
+// Rota de login falsa pra teste
+router.post('/login', async (req, res) => {
+  const { email, senha } = req.body;
 
-COPY . .
+  if (email === 'admin@admin.com' && senha === '123456') {
+    const token = jwt.sign({ email }, process.env.JWT_SECRET, {
+      expiresIn: '7d'
+    });
+    return res.json({ token });
+  }
 
-EXPOSE 3001
+  res.status(401).json({ error: 'Acesso negado' });
+});
 
-CMD ["node", "server.js"]
+module.exports = router;
