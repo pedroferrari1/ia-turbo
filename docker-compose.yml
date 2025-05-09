@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  ia-turbo:
-    container_name: ia-turbo-backend
+  backend:
     build: .
+    container_name: ia-turbo-backend
     ports:
       - "3001:3001"
     env_file:
