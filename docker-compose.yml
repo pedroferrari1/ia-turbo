@@ -1,7 +1,11 @@
 version: '3.8'
 
 services:
+<<<<<<< HEAD
   ia-turbo:
+=======
+  ia-backend:
+>>>>>>> origin/main
     container_name: ia-turbo-backend
     build: .
     ports:
