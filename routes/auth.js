@@ -1,5 +1,3 @@
-FROM node:18
-
 # Diretório de trabalho dentro do container
 WORKDIR /app
 
