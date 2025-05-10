@@ -1,11 +1,13 @@
+
 FROM node:18
+
+# Instalando serve para rodar o front
+RUN npm install -g serve
 
 WORKDIR /app
 
-COPY . .
+COPY ./backend ./backend
+COPY ./frontend ./frontend
 
-RUN npm install
-
+EXPOSE 80
 EXPOSE 3001
-
-CMD ["node", "server.js"]
